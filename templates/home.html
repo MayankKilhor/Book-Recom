@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+{#container#}
+<div class="login-box">
+            
+            <h2>Library Book Recommendation System</h2>       
+                <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+                <div class="user-box">
+                    <input type="text" name="book" required="">
+                    <label>Book Title</label>
+                </div>
+                
+
+                    <button type="submit" value="predict" >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                        Submit
+                    </button>
+            </form>
+</div>
+</body>
+</html>

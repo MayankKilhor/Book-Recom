@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+{#container#}
+<div class="login-box" style="width: 1000px;">
+    <h2>Recommended book </h4>
+
+    <table>
+    <thead >
+        <tr>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>ISBN</th>
+            <th>Publisher</th>
+            <th>Mean Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for j in range(5) %}    
+    <tr>
+    {% for i in range(5) %}
+    <td>{{ books[0][i][j]}}</td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+
+</div>
+</body>
+</html>
