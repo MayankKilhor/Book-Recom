@@ -3,6 +3,8 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
+from sklearn import metrics
+
 
 app = Flask(__name__)
 
@@ -101,6 +103,7 @@ class KNN(Books):
         Cosine similarity is a metric used to determine how
          similar the documents are irrespective of their size.'''
         self.model_knn = NearestNeighbors(metric='cosine', algorithm='brute')
+        
         self.model_knn.fit(self.uti_mat)
 
     def Recommend_Books(self, book, n_neighbors=5):
