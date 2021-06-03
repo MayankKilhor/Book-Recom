@@ -9,16 +9,6 @@
 </head>
 <body>
 
-{#container#}
-
-<!-- <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> -->
 <div class="elementor-text-editor elementor-clearfix">
 
      
@@ -28,7 +18,28 @@
      
    </div>
 <div>
+    <figure class="input">
+        <div class="input__box">
+          <img src="{{ input[4][0] }}" alt="Input book" class="input__img">
+        </div>
+        <div class="input__content">
+          <div class="input__title">
+            <h1 class="input__heading">{{ input[1][0]}} 👌</h1>
+            
+          </div>
+          <i><h2>By: {{ input[2][0] }}</h2></i>
+          <br>
 
+          <p class="input__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <div class="input__details">
+            <p class="input__detail"><span class="emoji">ISBN : </span>{{ input[0][0] }}</p>
+       
+            <p class="input__detail"><span class="emoji">⭐️ </span>{{ input[3][0]}} / 5</p>
+          </div>
+        </div>
+       
+      </figure>
+        
 </div>
 
 <div class="card-columns py-3">
@@ -45,6 +56,7 @@
     </div>
     {% endfor %}
 </div>
+
 
 <!-- 
 

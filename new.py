@@ -111,8 +111,8 @@ def predict():
         input_book.append(books_data['image_url'].tolist())
         Author_Recommended_Books,Recommended_Books= ICF.Recommend_Books(data)
         print(input_book)
-        return render_template('newcard.html', books2=Recommended_Books)
-        #return render_template('newcard.html', books1=Author_Recommended_Books,books2=Recommended_Books)
+        return render_template('newcard.html', input=input_book,books2=Recommended_Books)
+        # return render_template('new.html', books1=Author_Recommended_Books,books2=Recommended_Books)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -235,7 +235,7 @@ display: table;
 /*===== VARIABLES CSS =====*/
 :root {
   /*===== Colores =====*/
-  --first-color: #F2A20C;
+  --first-color: #f2a20c;
   --white-color: #E9EAEC;
   --dark-color: #272D40;
   --dark-color-lighten: #F2F5FF;
@@ -362,4 +362,76 @@ img {
 .card:hover .card__button {
   transition-delay: .2s;
   opacity: 1;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.input {
+  max-width: 1000px;
+  overflow: hidden;
+  border-radius: px;
+  margin: auto;
+  width: 80%;
+  display: flex;
+  align-items: center; 
+  padding: 40px;
+  justify-content: center; 
+  display: flex;
+  align-items: stretch;
+}
+
+.input__box {
+  flex: 0 0 45%;
+}
+
+.input__img {
+  width: 100%;
+  display: block;
+}
+
+.input__content {
+  flex: 1;
+  background: #fff;
+  padding: 35px 30px;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+
+.input__title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input__heading {
+  color: #f2a20c;
+  margin-right: auto;
+}
+
+
+
+.input__description {
+  font-size: 14px;
+}
+
+.input__details {
+  display: flex;
+  margin-top: auto;
+}
+
+.input__detail {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-right: 20px;
+  font-weight: 700;
+  
+  display: flex;
+  align-items: center;
+}
+
+.emoji {
+  font-size: 20px;
+  margin-right: 3px;
 }
