@@ -101,9 +101,16 @@ def predict():
         ICF = Predict()
         book = request.form['book']
         data = book
-
+        books_data = pd.read_csv('./Datasets/GoodBooks/books.csv',error_bad_lines = False)
+        books_data = books_data[books_data['original_title'].isin([data])]
+        input_book=[]
+        input_book.append(books_data['isbn'].tolist())
+        input_book.append(books_data['original_title'].tolist())
+        input_book.append(books_data['authors'].tolist())
+        input_book.append(books_data['average_rating'].tolist())
+        input_book.append(books_data['image_url'].tolist())
         Author_Recommended_Books,Recommended_Books= ICF.Recommend_Books(data)
-        print(Author_Recommended_Books)
+        print(input_book)
         return render_template('new.html', books1=Author_Recommended_Books,books2=Recommended_Books)
 
 if __name__ == '__main__':

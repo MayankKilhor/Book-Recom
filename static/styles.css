@@ -174,3 +174,48 @@ table, th, td {
 th, td {
   padding: 15px;
 }
+
+
+.elementor-text-editor {
+  text-align: right;
+}
+.elementor-widget-text-editor {
+  color: #212121;
+  font-family: "Titillium Web", Sans-serif;
+}
+* {
+box-sizing: border-box;
+}
+/* Style the search field */
+form.example input[type=text] {
+padding: 12px;
+font-size: 17px;
+border: none;
+float: left;
+width: 80%;
+background: #f2f2f2;
+}
+
+/* Style the submit button */
+form.example button {
+float: left;
+width: 20%;
+padding: 12px;
+background: #004E92;
+color: white;
+font-size: 17px;
+border: none;
+border-left: none; /* Prevent double borders */
+cursor: pointer;
+}
+
+form.example button:hover {
+background: #000428;
+}
+
+/* Clear floats */
+form.example::after {
+content: "";
+clear: both;
+display: table;
+}

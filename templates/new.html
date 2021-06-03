@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HOME</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
 
@@ -18,6 +19,15 @@
 <br>
 <br>
 <br> -->
+<div class="elementor-text-editor elementor-clearfix">
+
+     
+     <form class="example" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+     <input type="text" name="book" required="" placeholder="Book Title">
+     <button type="submit" value="predict"><i class="fa fa-search"></i></button></form>
+     
+   </div>
+
 <div class="login-box" style="width: 800px;margin-top: 6%;margin-bottom:10%;margin-left: 18%;">
     <h2>More books by that author </h4>
 
