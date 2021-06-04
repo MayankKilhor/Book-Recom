@@ -1,12 +1,5 @@
 from flask import Flask, render_template, url_for, request
-from numpy.lib.function_base import append
 import pandas as pd
-from scipy.sparse import csr_matrix
-import numpy as np
-from sklearn.neighbors import NearestNeighbors
-from sklearn import metrics
-import re
-import string
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
@@ -25,13 +18,11 @@ class Predict():
         tags_data = pd.read_csv('./Datasets/GoodBooks/book_tags.csv')
         ratings_data = pd.read_csv('./Datasets/GoodBooks/ratings.csv')
         book_tags = pd.read_csv('./Datasets/GoodBooks/tags.csv')
-        # stop_words=set(STOPWORDS)
         content_data = books_data
         content_data = content_data.astype(str)
         content_data['content'] = content_data['original_title'] + ' ' + content_data['authors'] + ' ' + content_data['average_rating']
         content_data = content_data.reset_index()
         indices = pd.Series(content_data.index, index=content_data['original_title'])
-        #removing stopwords
         tfidf = TfidfVectorizer()
 
         #Construct the required TF-IDF matrix by fitting and transforming the data
@@ -40,10 +31,8 @@ class Predict():
         cosine_sim_author = linear_kernel(tfidf_matrix, tfidf_matrix)
         def get_recommendations_author_books(book, cosine_sim=cosine_sim_author):
             idx = indices[book]
-            # print(idx)
             # Get the pairwsie similarity scores of all books with that book
             sim_scores = list(enumerate(cosine_sim[idx]))
-            # print(sim_scores)
             # Sort the books based on the similarity scores
             sim_scores = sorted(sim_scores,key=lambda x: x[1],reverse=True)[:10000]
 
@@ -60,7 +49,6 @@ class Predict():
             author_book.append(content_data['authors'].iloc[book_indices].tolist())
             author_book.append(content_data['average_rating'].iloc[book_indices].tolist())
             author_book.append(content_data['image_url'].iloc[book_indices].tolist())
-            #author_book.append(content_data['content'].ilo_indices].tolist())
             return list(author_book)
         author_books = get_recommendations_author_books(book, cosine_sim_author)
         
@@ -87,7 +75,6 @@ class Predict():
             recom_book.append(content_data['authors'].iloc[book_indices].tolist())
             recom_book.append(content_data['average_rating'].iloc[book_indices].tolist())
             recom_book.append(content_data['image_url'].iloc[book_indices].tolist())
-            #author_book.append(content_data['content'].ilo_indices].tolist())
             return list(recom_book)
         recom = get_recommendations(book, cosine_sim_content)
 
@@ -101,16 +88,7 @@ def predict():
         book = request.form['book']
         data = book
         books_data = pd.read_csv('./Datasets/GoodBooks/books.csv',error_bad_lines = False)
-        # print(book)
-        # exists = book in books_data['original_title']
-        # print(exists)
-        # temp= 'jane doe'
-        # exists = temp in books_data['original_title']
-        # print(exists)
         books_data = books_data[books_data['original_title'].isin([data])]
-        print('***************************************8')
-        print(len(books_data))
-        print('*******************************')
         if len(books_data):
             input_book=[]
             input_book.append(books_data['isbn'].tolist())
