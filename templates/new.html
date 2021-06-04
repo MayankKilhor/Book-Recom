@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+</head>
+<body>
+
+{#container#}
+
+<div class="elementor-text-editor elementor-clearfix">
+
+     
+     <form class="example" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+     <input type="text" name="book" required="" placeholder="Book Title">
+     <button type="submit" value="predict"><i class="fa fa-search"></i></button></form>
+     
+   </div>
+
+<div class="login-box" style="width: 800px;margin-top: 6%;margin-bottom:10%;margin-left: 18%;">
+    <h2>More books by that author </h4>
+
+    <table>
+    <thead >
+        <tr>
+            <th>ISBN</th>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>Mean Rating</th>
+            <th>Image Url</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for j in range(5) %}    
+    <tr>
+    {% for i in range(4) %}
+    <td>{{ books1[i][j]}}</td>
+    {% endfor %}
+    <td><img src="{{ books1[4][j] }}"></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+
+</div>
+<div class="login-box" style="width: 800px;margin-top: 6%;margin-bottom:10%;margin-left: 18%;">
+    <h2>Recommended book </h4>
+
+    <table>
+    <thead >
+        <tr>
+            <th>ISBN</th>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>Mean Rating</th>
+            <th>Image Url</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for j in range(10) %}    
+    <tr>
+    {% for i in range(4) %}
+    <td>{{ books2[i][j]}}</td>
+    {% endfor %}
+    <td><img src="{{ books2[4][j] }}"></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+
+</div>
+</body>
+</html>

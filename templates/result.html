@@ -5,35 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>HOME</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
 
-{#container#}
-<div class="login-box" style="width: 1000px;">
-    <h2>Recommended book </h4>
+<div class="elementor-text-editor elementor-clearfix">
 
-    <table>
-    <thead >
-        <tr>
-            <th>Book Title</th>
-            <th>Book Author</th>
-            <th>ISBN</th>
-            <th>Publisher</th>
-            <th>Mean Rating</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for j in range(5) %}    
-    <tr>
-    {% for i in range(5) %}
-    <td>{{ books[0][i][j]}}</td>
+     
+     <form class="example" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+     <input type="text" name="book" required="" placeholder="Book Title">
+     <button type="submit" value="predict"><i class="fa fa-search"></i></button></form>
+     
+   </div>
+<div>
+      <figure class="input">
+        <div class="input__box">
+          <img src="{{ input[4][0] }}" alt="Book" class="input__img">
+        </div>
+        <div class="input__content">
+          <div class="input__title">
+            <h1 class="input__heading"><span>{{ input[1][0] }}</span></h1>
+          </div>
+          <i><h2><span>By: {{ input[2][0] }}</span></h2></i>
+          <div class="input__details">
+            <p class="input__detail"><span class="emoji">ISBN: </span>{{ input[0][0] }}</p>
+            <div>
+            <p class="input__detail"><span class="emoji">⭐️</span>{{ input[3][0] }} / 5</p>
+            </div>
+          </div>
+        </div>
+      </figure>
+</div>
+
+<div class="card-columns py-3">
+    {% for j in range(10) %}    
+    <div class="card">
+      <img src="{{ books2[4][j] }}"  alt="..." class="card__img">
+      <div class="card__data">
+        <h1 class="card__title">{{ books2[1][j] }}</h1>
+        <span class="card__preci">Author - {{ books2[2][j] }} </span>
+        <p class="card__description">ISBN - {{ books2[0][j] }} </p>
+        <p class="card__description"style="margin-bottom:2rem">Rating - {{ books2[3][j] }}/5 </p>
+        
+      </div>
+    </div>
     {% endfor %}
-    </tr>
-    {% endfor %}
-
-    </tbody>
-    </table>
-
 </div>
 </body>
 </html>
