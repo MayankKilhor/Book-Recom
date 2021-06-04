@@ -1,4 +1,7 @@
-.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;align-items: center;text-align: center;
+body{
+    background: #243b55;
+}
+.page_404{ padding:40px 0;  font-family: 'Arvo', serif;align-items: center;text-align: center;
 }
 
 .page_404  img{ width:100%;}
