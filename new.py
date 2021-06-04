@@ -96,7 +96,6 @@ class Predict():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    global KNN_Recommended_Books
     if request.method == 'POST':
         ICF = Predict()
         book = request.form['book']
@@ -110,7 +109,7 @@ def predict():
         input_book.append(books_data['average_rating'].tolist())
         input_book.append(books_data['image_url'].tolist())
         Author_Recommended_Books,Recommended_Books= ICF.Recommend_Books(data)
-        print(input_book)
+        # print(input_book)
         return render_template('newcard.html', input=input_book,books2=Recommended_Books)
         # return render_template('new.html', books1=Author_Recommended_Books,books2=Recommended_Books)
 
